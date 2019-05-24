@@ -5,24 +5,51 @@ public class Round {
 	
 	private int roundNumber;
 	private String roundLog;
-	public int playerAttack;
+	public int playerAttack; 
 	public int opponentAttack;
 	
+
 	
 	public void fight(Fighter player, Fighter opponent) {
 		
+		playerAttack = player.attack(NumberGenerator.getRandomNumber(1, 6));
+		opponentAttack = opponent.attack(NumberGenerator.getRandomNumber(1, 6));
+		
+		if (isBiggest(playerAttack, opponentAttack)) {
+			
+			opponent.takeDamage(NumberGenerator.getRandomNumber(1, 6));
+			
+			System.out.println(opponent.getInfo());
+		}
+		
+		else {
+			
+			player.takeDamage(NumberGenerator.getRandomNumber(1, 6));
+			
+			System.out.println(player.getInfo());
+		}
+			
 	}
 	
+	
     public boolean isBiggest(int playerAttack, int opponentAttack) {
-//    	if (playerAttack => opponentAttack) {
-//    		result player får slå opponent
-//    	}
-    	return true;
+    	if (playerAttack >= opponentAttack) {
+    		
+    		return true;
+    	}
+    	
+    	else  {
+    		
+    	return false;
+    	}
+    	
     } 
     public void appendLog(String log) {
     	
     }
     public String getRoundLog(int roundNumber, Fighter player, Fighter opponent) {
+    	String result = "ToDo";
+    	
     	return result;
     	
     }

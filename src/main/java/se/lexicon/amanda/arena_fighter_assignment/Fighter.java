@@ -1,5 +1,7 @@
 package se.lexicon.amanda.arena_fighter_assignment;
 
+import se.lexicon.amanda.roman_name_generator.*;
+
 public class Fighter {
 
 	private String name;
@@ -9,14 +11,14 @@ public class Fighter {
 	private boolean retired;
 	private String[] history;
 	
-	public Fighter(String name, int strength) {
+	public Fighter(String name, int strength) {  //constructor
 		this.name = name;
 		this.strength = strength;
 		restoreLifeforce();
 	}
 	
 	public Fighter(int strength) {  //för opponent med romannamegenerator
-		//this.name = romanNameGenerator
+		this.name = new RomanNameGenerator().getFullName();
 		this.strength = strength;
 		restoreLifeforce();
 	}
@@ -27,7 +29,7 @@ public class Fighter {
 	
 	public int attack(int randomModifier) {
 		
-	return randomModifier + strength;	
+		return randomModifier + strength;	
 	}
 	
 	public void addToScore(int scoreToAdd) {
@@ -43,7 +45,7 @@ public class Fighter {
 	}
 	
 	public String getInfo() {
-		String report = "Gladiator " + name + "s lifescore is now " + lifeforce;
+		String report = "Gladiator " + name + "s lifeforce is now " + lifeforce;
 		return report;
 	}
 	
@@ -55,6 +57,7 @@ public class Fighter {
 		return retired;
 		
 	}
+	
 	public boolean isAlive() {
 		if(lifeforce < 0) {
 			return false;

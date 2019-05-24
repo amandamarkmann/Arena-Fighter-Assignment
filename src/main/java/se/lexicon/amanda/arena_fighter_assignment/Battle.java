@@ -5,12 +5,13 @@ public class Battle {
 	private Fighter player;
 	private Fighter opponent;
 	private String battleLog;
+	
 	public boolean battle() {
 		
 		//
 		while(player.isAlive() && opponent.isAlive()) {
 			
-			//player.attack(NumberGenerator.getRandomNumber(1, 6));
+			
 			
 			
 		}
